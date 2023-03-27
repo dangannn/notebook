@@ -177,14 +177,47 @@ footer {
   left: 0;
 }
 
-.nav__sublist {
-  display: none;
+.menu {
+  margin: 3rem auto;
+  display: flex;
+  max-width: 60rem;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
-.nav__link--view:hover ~ .nav__sublist {
-  display: block;
+.menu__link {
+  text-align: center;
+  min-width: 12rem;
+  padding: 1rem;
+  margin: 0.3rem;
+  border: 0.1rem solid black;
+  border-radius: 6rem;
 }
-.nav__sublist:hover {
-  display: block;
+
+.filter {
+  font-size: 1rem;
+  margin: 3rem auto;
+  display: flex;
+  max-width: 30rem;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.filter__option {
+  text-align: center;
+  min-width: 12rem;
+  padding: 1rem;
+  margin: 0.3rem;
+}
+
+.pages {
+  max-width: 40rem;
+  margin: 3rem auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.pages__link {
+  padding: 0.5rem;
+  margin: 0.5rem;
 }
 
 /*# sourceMappingURL=style.css.map */

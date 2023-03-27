@@ -14,12 +14,7 @@
 if( isset($_POST['button']) && $_POST['button']== 'Добавить запись')
 
 {
-    $HOST = 'localhost';
-    $USER = 'root';
-    $PASSWORD = '';
-    $DATABASE = 'notebook';
-// осуществляем подключение к базе данных
-    $mysqli = mysqli_connect($HOST, $USER, $PASSWORD, $DATABASE);
+    include 'connect.php';
 
 
 

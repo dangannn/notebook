@@ -2,23 +2,13 @@
 function getFriendsList($type, $page)
 
 {
-    $HOST = 'localhost';
-    $USER = 'root';
-    $PASSWORD = '';
-    $DATABASE = 'notebook';
-// осуществляем подключение к базе данных
-    $mysqli = mysqli_connect($HOST, $USER, $PASSWORD, $DATABASE);
+    include 'connect.php';
 
     if (mysqli_connect_errno()) // проверяем корректность подключения
 
         return 'Ошибка подключения к БД: ' . mysqli_connect_error();
 
 // формируем и выполняем SQL-запрос для определения числа записей
-//    if ($type == 'byid') {
-//        $sql_res = mysqli_query($mysqli, 'SELECT COUNT(*) FROM contacts ORDER BY id');
-//    } else {
-//        $sql_res = mysqli_query($mysqli, 'SELECT COUNT(*) FROM contacts ORDER BY second_name');
-//    }
     $sql_res = mysqli_query($mysqli, 'SELECT COUNT(*) FROM contacts');
 // проверяем корректность выполнения запроса и определяем его результат
      $row =  mysqli_fetch_row($sql_res);
@@ -81,13 +71,13 @@ function getFriendsList($type, $page)
         {
 
             $ret .= '
-<div id="pages">'; // блок пагинации
+<div class="pages" id="pages">'; // блок пагинации
 
             for ($i = 0; $i < $TOTAL; $i++) // цикл для всех страниц пагинации
 
                 if ($i != $page) // если не текущая страница
 
-                    $ret .= '<a href="?p=viewer&pg=' . $i . '">' . ($i + 1) . '</a>'; else // если текущая страница
+                    $ret .= '<a class="pages__link" href="?p=viewer&pg=' . $i . '">' . ($i + 1) . '</a>'; else // если текущая страница
 
                     $ret .= '<span>' . ($i + 1) . '</span>';
 
@@ -95,9 +85,7 @@ function getFriendsList($type, $page)
 </div>';
 
         }
-
         return $ret;          // возвращаем сформированный контент
-
     }
 
 // если запрос выполнен некорректно

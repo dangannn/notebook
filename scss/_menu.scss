@@ -1,11 +1,30 @@
-.nav{
-  &__sublist {
-    display: none;
+.menu{
+  margin: 3rem auto;
+  display: flex;
+  max-width: 60rem;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  &__link {
+    text-align: center;
+    min-width: 12rem;
+    padding: 1rem;
+    margin: 0.3rem;
+    border: 0.1rem solid black;
+    border-radius: 6rem;
   }
-  &__link--view:hover ~ &__sublist{
-      display: block;
-  }
-  &__sublist:hover{
-    display: block;
+}
+
+.filter{
+  font-size: 1rem;
+  margin: 3rem auto;
+  display: flex;
+  max-width: 30rem;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  &__option {
+    text-align: center;
+    min-width: 12rem;
+    padding: 1rem;
+    margin: 0.3rem;
   }
 }
