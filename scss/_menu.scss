@@ -1,0 +1,11 @@
+.nav{
+  &__sublist {
+    display: none;
+  }
+  &__link--view:hover ~ &__sublist{
+      display: block;
+  }
+  &__sublist:hover{
+    display: block;
+  }
+}
