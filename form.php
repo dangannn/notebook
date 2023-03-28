@@ -1,3 +1,19 @@
+<?php
+
+$row = [
+"surname" => "фамилия",
+"name" => "имя",
+"lastname" => "отчество",
+"gender" => "пол",
+"date" => "Дата рождения",
+"phone" => "Номер телефона",
+"location" => "Адрес",
+"email" => "email@mail.ru",
+"comment" => "Комментарий",
+];
+$button = "Добавить запись";
+?>
+
 <form name="form_add" method="post">
     <div class="column">
         <div class="add">

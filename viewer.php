@@ -2,7 +2,7 @@
 function getFriendsList($type, $page)
 
 {
-    include 'connect.php';
+    include './connect.php';
 
     if (mysqli_connect_errno()) // проверяем корректность подключения
 
@@ -27,7 +27,7 @@ function getFriendsList($type, $page)
 
 // формируем и выполняем SQL-запрос для выборки записей из БД
 
-        $sql = 'SELECT * FROM contacts ORDER BY '.$type.' LIMIT ' . $page . ', 10';
+        $sql = 'SELECT * FROM contacts ORDER BY '.$type.' LIMIT ' . $page*10 . ', 10';
         $sql_res = mysqli_query($mysqli, $sql);
         $ret = '<table>'; // строка с будущим контентом страницы
 
@@ -40,23 +40,23 @@ function getFriendsList($type, $page)
                 <tr>
                     <td>' . $row['id'] . '</td>
 
-                    <td>' . $row['second_name'] . '</td>
+                    <td>' . $row['surname'] . '</td>
 
-                    <td>' . $row['first_name'] . '</td>
+                    <td>' . $row['name'] . '</td>
                     
-                     <td>' . $row['patronymic'] . '</td>
+                     <td>' . $row['lastname'] . '</td>
 
                     <td>' . $row['gender'] . '</td>
 
-                    <td>' . $row['birthday'] . '</td>
+                    <td>' . $row['date'] . '</td>
                     
-                     <td>' . $row['person_address'] . '</td>
+                     <td>' . $row['phone'] . '</td>
 
-                    <td>' . $row['e-mail'] . '</td>
+                    <td>' . $row['location'] . '</td>
                     
+                    <td>' . $row['email'] . '</td>
+
                     <td>' . $row['comment'] . '</td>
-
-                    <td>' . $row['tel'] . '</td>
                 </tr>
                 ';
 

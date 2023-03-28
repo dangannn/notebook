@@ -1,5 +1,5 @@
 <?php
-include 'connect.php';
+include './connect.php';
 
 
 if (mysqli_connect_errno()) // если при подключении к серверу произошла ошибка
@@ -35,7 +35,6 @@ if (isset($_GET['id']))         // (переход по ссылке или от
 {
 
 // выполняем поиск записи по ее id
-    var_dump($_GET['id']);
     $sql_res = mysqli_query($mysqli,
 
         'SELECT * FROM contacts WHERE id=' . $_GET['id'] . ' LIMIT 0, 1');
@@ -59,14 +58,14 @@ if (!$currentROW)    // если информации о текущей запи
 
 // формируем и выполняем запрос для получения требуемых полей всех записей таблицы
 
-$sql_res = mysqli_query($mysqli, 'SELECT id, first_name FROM contacts');
+$sql_res = mysqli_query($mysqli, 'SELECT id, name FROM contacts');
 
 
 if (!mysqli_errno($mysqli))     // если запрос успешно выполнен
 
 {
 
-    echo '<div id="delete_links">';
+    echo '<div class="form__wrapper" id="delete_links">';
 
     while ($row = mysqli_fetch_assoc($sql_res)) // перебираем все записи выборки
 
@@ -80,13 +79,13 @@ if (!mysqli_errno($mysqli))     // если запрос успешно выпо
 
 // значит в цикле сейчас текущая запись
 
-            echo '<div>' . $row['first_name'] . '</div>';                               // и выводим ее в списке
+            echo '<div class="form__item">' . $row['name'] . '</div>';                               // и выводим ее в списке
 
         else    // если проверяемая в цикле запись не текущая
 
 // формируем ссылку на нее
 
-            echo '<a href="?p=delete&id=' . $row['id'] . '">' . $row['first_name'] . '</a>';
+            echo '<a class="form__item" href="?p=delete&id=' . $row['id'] . '">' . $row['name'] . '</a>';
 
     }
 
@@ -99,11 +98,11 @@ if (!mysqli_errno($mysqli))     // если запрос успешно выпо
 
 // формируем HTML-код формы
 
-        echo '<form name="form_delete" method="post" action="?p=delete&id=' . $currentROW['id'] . '">
+        echo '<form class="form" name="form_delete" method="post" action="?p=delete&id=' . $currentROW['id'] . '">
 
-<input type="text" name="name" id="name" value="' .
+<input class="form__input" type="text" name="name" id="name" value="' .
 
-            $currentROW['first_name'] . '"><input type="submit" name="button" value="Удалить"></form>';
+            $currentROW['name'] . '"><input type="submit" name="button" value="Удалить"></form>';
 
     } else echo 'Записей пока нет';
 

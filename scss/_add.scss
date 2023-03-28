@@ -1,0 +1,15 @@
+.form {
+  max-width: 40rem;
+  margin: 3rem auto;
+  &__input{
+    margin-bottom: 1rem;
+  }
+  &__item{
+    display: block;
+    margin: 1rem;
+  }
+  &__wrapper {
+    max-width: 40rem;
+    margin: 3rem auto;
+  }
+}

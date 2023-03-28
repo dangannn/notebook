@@ -71,9 +71,9 @@ if (!isset($_GET['sort']) || $_GET['sort'] == 'id') {
 
 echo '>По-умолчанию</a>';
 
-echo '<a href="./?p=viewer&sort=second_name"'; // второй пункт подменю
+echo '<a href="./?p=viewer&sort=surname"'; // второй пункт подменю
 
-if (isset($_GET['sort']) && $_GET['sort'] == 'second_name') {
+if (isset($_GET['sort']) && $_GET['sort'] == 'surname') {
     echo 'class="filter__option selected"';
 } else {
     echo 'class="filter__option"';

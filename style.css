@@ -49,7 +49,7 @@ a:hover {
   opacity: 1;
 }
 
-.select {
+.selected {
   text-decoration: underline;
   text-decoration-style: double;
 }
@@ -218,6 +218,22 @@ footer {
 .pages__link {
   padding: 0.5rem;
   margin: 0.5rem;
+}
+
+.form {
+  max-width: 40rem;
+  margin: 3rem auto;
+}
+.form__input {
+  margin-bottom: 1rem;
+}
+.form__item {
+  display: block;
+  margin: 1rem;
+}
+.form__wrapper {
+  max-width: 40rem;
+  margin: 3rem auto;
 }
 
 /*# sourceMappingURL=style.css.map */

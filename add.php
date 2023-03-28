@@ -1,21 +1,12 @@
-<form name="form_add" method="post" action="?p=add">
-
-    <input type="text" name="name" id="name" placeholder="Имя">
-
-    <textarea name="comment" placeholder="Краткий комментарий"></textarea>
-
-    <input type="submit" name="button" value="Добавить запись">
-
-</form>
 <?php
+include './form.php';
+include './connect.php';
 
 // если были переданы данные для добавления в БД
 
 if( isset($_POST['button']) && $_POST['button']== 'Добавить запись')
 
 {
-    include 'connect.php';
-
 
 
     if( mysqli_connect_errno() ) // проверяем корректность подключения
@@ -24,15 +15,20 @@ if( isset($_POST['button']) && $_POST['button']== 'Добавить запись
 
 // формируем и выполняем SQL-запрос для добавления записи
 
-    $sql_res=mysqli_query($mysqli, 'INSERT INTO contacts (first_name, comment) VALUES ("'.
-
+    $sql_res = mysqli_query($mysqli, 'INSERT INTO `contacts` (`surname`, `name`, `lastname`, `gender`, `date`, `phone`, `location`, `email`, `comment`) VALUES ("'.
+        htmlspecialchars($_POST['surname']).'", "'.
         htmlspecialchars($_POST['name']).'", "'.
-
+        htmlspecialchars($_POST['lastname']).'", "'.
+        htmlspecialchars($_POST['gender']).'", "'.
+        htmlspecialchars($_POST['date']).'", "'.
+        htmlspecialchars($_POST['phone']).'", "'.
+        htmlspecialchars($_POST['location']).'", "'.
+        htmlspecialchars($_POST['email']).'", "'.
         htmlspecialchars($_POST['comment']).'")');
 
 // если при выполнении запроса произошла ошибка – выводим сообщение
 
-    if( mysqli_errno($mysqli) )
+    if(mysqli_errno($mysqli))
 
         echo '<div class="error">Запись не добавлена</div>'; else // если все прошло нормально – выводим сообщение
 

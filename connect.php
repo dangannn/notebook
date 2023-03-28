@@ -1,7 +1,7 @@
 <?php
-$HOST = 'localhost';
-$USER = 'root';
-$PASSWORD = '';
-$DATABASE = 'notebook';
-// осуществляем подключение к базе данных
+$HOST = 'std-mysql';
+$USER = 'std_2162_notebook';
+$PASSWORD = 'notebook';
+$DATABASE = 'std_2162_notebook';
+
 $mysqli = mysqli_connect($HOST, $USER, $PASSWORD, $DATABASE);
